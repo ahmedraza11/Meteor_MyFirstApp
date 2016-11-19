@@ -1,0 +1,36 @@
+<head>
+  <title>simple</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Todo List</h1>
+          <h4>{{> loginButtons}} </h4>
+         {{#if currentUser}}
+               <form class="new-reso">
+         <input type="text" name="title" placeholder="A new Reso">
+         <input type="submit" value="Submit"> 
+      </form>
+      {{/if}}
+    </header>
+        <ul>
+    
+            {{#each reso}}
+                {{> list}}
+            {{/each}}  
+        </ul>
+         
+  </div>
+</body>
+ 
+<template name="list">
+    <li class="{{#if checked}}checked{{/if}}">
+        <input type="checkbox" checked="{{checked}}" class="toggle-checked">
+        <span class="text">{{title}} <br>
+          
+        </span>
+        <button class="delete">Remove</button>
+       
+        
+    </li>
+</template>
